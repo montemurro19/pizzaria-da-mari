@@ -10,19 +10,19 @@ export const HomeNavbar = () => {
       </a>
       <ul className="flex gap-12 text-lime-900 text-sm items-center">
         <li>
-          <NavbarButton text={"Fazer Pedido"} endpoint={"/"} />
+          <NavbarButton text={"Fazer Pedido"} endpoint={"/login"} />
         </li>
         <li>
-          <NavbarButton text={"Cardápio"} endpoint={"/"} />
+          <NavbarButton text={"Cardápio"} endpoint={"/cardapio"} />
         </li>
         <li>
-          <NavbarButton text={"Acompanhar Pedido"} endpoint={"/"} />
+          <NavbarButton text={"Acompanhar Pedido"} endpoint={"/login"} />
         </li>
         <li>
-          <NavbarButton text={"Cadastre-se"} endpoint={"/"} />
+          <NavbarButton text={"Cadastre-se"} endpoint={"/cadastro-pessoa"} />
         </li>
         <li>
-          <NavbarButton text={"Login"} endpoint={"/"} />
+          <NavbarButton text={"Login"} endpoint={"/login"} />
         </li>
       </ul>
     </nav>
