@@ -10,7 +10,7 @@ export default function Home() {
       <main className="fixed bottom-0 w-3/5 h-screen flex flex-col justify-center
         items-center">
         <Image src={Motoboy} width={250} height={250} />
-        <h1 className=" text-4xl font-bold text-amber-100 mb-4">
+        <h1 className="text-4xl font-bold text-amber-100 mb-4">
           Bem vindo à Pizzaria da Mari!
         </h1>
         <p className="text-amber-100">

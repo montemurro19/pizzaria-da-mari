@@ -11,7 +11,7 @@ export const FormLogin = () => {
 
     const JSONdata = JSON.stringify(data);
 
-    const endpoint = "";
+    const url = "https://localhost:8080/api/login";
 
     const options = {
       method: "POST",
@@ -21,7 +21,8 @@ export const FormLogin = () => {
 
       body: JSONdata,
     };
-    console.log(JSONdata);
+
+    return await fetch(url, options);
   };
 
   return (
@@ -71,7 +72,7 @@ export const FormCadastroPessoa = () => {
 
     const JSONdata = JSON.stringify(data);
 
-    const endpoint = "";
+    const url = "";
 
     const options = {
       method: "POST",
@@ -81,7 +82,8 @@ export const FormCadastroPessoa = () => {
 
       body: JSONdata,
     };
-    console.log(JSONdata);
+
+    return await fetch(url, options);
   };
 
   return (
@@ -160,7 +162,7 @@ export const FormCadastroEndereco = () => {
 
     const JSONdata = JSON.stringify(data);
 
-    const endpoint = "";
+    const endpoint = "https://localhost:8080/api/cadastro";
 
     const options = {
       method: "POST",
