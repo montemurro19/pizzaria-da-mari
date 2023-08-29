@@ -9,7 +9,7 @@ export const FormLogin = () => {
       senha: e.target.senha.value,
     };
 
-    const JSONdata = JSON.stringify(data);
+    const JSONdata = JSON.stringify(Object.fromEntries(data));
 
     const url = "https://localhost:8080/api/login";
 
@@ -22,7 +22,15 @@ export const FormLogin = () => {
       body: JSONdata,
     };
 
-    return await fetch(url, options);
+    const result = await fetch(url, options);
+
+    if(result.status !== 201){
+      return {message: "Erro ao criar a conta. Verifique os campos."}
+    }
+
+    revalidatePath("/contas")
+    return {ok: "Conta criada com sucesso"}
+
   };
 
   return (
@@ -70,7 +78,7 @@ export const FormCadastroPessoa = () => {
       cpf: e.target.cpf.value,
     };
 
-    const JSONdata = JSON.stringify(data);
+    const JSONdata = JSON.stringify(Object.fromEntries(data));
 
     const url = "";
 
@@ -83,7 +91,15 @@ export const FormCadastroPessoa = () => {
       body: JSONdata,
     };
 
-    return await fetch(url, options);
+    const result = await fetch(url, options);
+
+    if(result.status !== 201){
+      return {message: "Erro ao criar a conta. Verifique os campos."}
+    }
+
+    revalidatePath("/contas")
+    return {ok: "Conta criada com sucesso"}
+    
   };
 
   return (
@@ -160,9 +176,9 @@ export const FormCadastroEndereco = () => {
       referencia: e.target.referencia.value,
     };
 
-    const JSONdata = JSON.stringify(data);
+    const JSONdata = JSON.stringify(Object.fromEntries(data));
 
-    const endpoint = "https://localhost:8080/api/cadastro";
+    const url = "https://localhost:8080/api/cadastro";
 
     const options = {
       method: "POST",
@@ -172,7 +188,16 @@ export const FormCadastroEndereco = () => {
 
       body: JSONdata,
     };
-    console.log(JSONdata);
+    
+    const result = await fetch(url, options);
+
+    if(result.status !== 201){
+      return {message: "Erro ao criar a conta. Verifique os campos."}
+    }
+
+    revalidatePath("/contas")
+    return {ok: "Conta criada com sucesso"}
+
   };
 
   return (
