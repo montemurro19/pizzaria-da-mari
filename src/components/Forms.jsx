@@ -11,7 +11,7 @@ export const FormLogin = () => {
 
     const JSONdata = JSON.stringify(Object.fromEntries(data));
 
-    const url = "https://localhost:8080/api/login";
+    const url = `${process.env.BASE_URL}/login`;
 
     const options = {
       method: "POST",
@@ -80,7 +80,7 @@ export const FormCadastroPessoa = () => {
 
     const JSONdata = JSON.stringify(Object.fromEntries(data));
 
-    const url = "";
+    const url = `${process.env.BASE_URL}/cadastro`;
 
     const options = {
       method: "POST",
@@ -178,7 +178,7 @@ export const FormCadastroEndereco = () => {
 
     const JSONdata = JSON.stringify(Object.fromEntries(data));
 
-    const url = "https://localhost:8080/api/cadastro";
+    const url = `${process.env.BASE_URL}/cadastro`;
 
     const options = {
       method: "POST",

@@ -2,7 +2,7 @@ import { CardCardapio } from "@/components/Cards";
 import { HomeNavbar, AuxNavbar } from "@/components/Navbars";
 
 async function getCardapio() {
-  const url = "https://localhost:8080/api/cardapio";
+  const url = `${process.env.BASE_URL}/item`
 
   const options = {
     method: "GET",
