@@ -12,19 +12,19 @@ async function getCardapio() {
   };
 
   const result = await fetch(url, options);
-
   return result.json();
 }
 
 export default async function Cardapio() {
-  const items = await getCardapio();
+  const result = await getCardapio();
+  const items = result.content
 
   return (
     <body className="w-screen h-screen">
       <HomeNavbar />
       <AuxNavbar />
-      <main className="w-screen h-[calc(100vh-120px)] flex items-center justify-center flex-wrap gap-10 py-10 ">
-        <div id="item">
+      <main className="w-screen">
+        <div id="item" className="max-w-screen h-[calc(100vh-120px)] flex items-center justify-center flex-wrap gap-10 py-10 ">
           {items.map((pizza) => {
             return <CardCardapio pizza={pizza} />;
           })}
