@@ -1,49 +1,29 @@
 "use client";
 
+import { useForm } from "react-hook-form";
+import { useContext } from "react";
+import { AuthContext } from "@/context/AuthContext";
+
 export const FormLogin = () => {
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const { register, handleSubmit } = useForm();
+  const {login} = useContext(AuthContext);
 
-    const data = {
-      email: e.target.email.value,
-      senha: e.target.senha.value,
-    };
-
-    const JSONdata = JSON.stringify(Object.fromEntries(data));
-
-    const url = `${process.env.BASE_URL}/login`;
-
-    const options = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-
-      body: JSONdata,
-    };
-
-    const result = await fetch(url, options);
-
-    if(result.status !== 201){
-      return {message: "Erro ao criar a conta. Verifique os campos."}
-    }
-
-    revalidatePath("/contas")
-    return {ok: "Conta criada com sucesso"}
-
+  const onSubmit = async (data) => {
+    const resp = await login(data);
+    if (resp?.error) console.log(resp.error);
   };
 
   return (
     <form
-      onSubmit={handleSubmit}
+      onSubmit={handleSubmit(onSubmit)}
       className="flex w-2/3 h-max flex-col items-stretch p-10 bg-amber-100 rounded-3xl space-y-2"
     >
       <label htmlFor="email" className="text-m text-gray-700">
         Email:
       </label>
       <input
-        type="text"
-        id="email"
+        register={register}
+        label="email"
         name="email"
         className="bg-amber-200 border-b border-gray-700"
       />
@@ -51,9 +31,10 @@ export const FormLogin = () => {
         Senha:
       </label>
       <input
-        type="password"
-        id="senha"
+        register={register}
+        label="senha"
         name="senha"
+        type="password"
         className="bg-amber-200 border-b border-gray-700"
       />
       <button
@@ -93,13 +74,12 @@ export const FormCadastroPessoa = () => {
 
     const result = await fetch(url, options);
 
-    if(result.status !== 201){
-      return {message: "Erro ao criar a conta. Verifique os campos."}
+    if (result.status !== 201) {
+      return { message: "Erro ao criar a conta. Verifique os campos." };
     }
 
-    revalidatePath("/contas")
-    return {ok: "Conta criada com sucesso"}
-    
+    revalidatePath("/contas");
+    return { ok: "Conta criada com sucesso" };
   };
 
   return (
@@ -188,16 +168,15 @@ export const FormCadastroEndereco = () => {
 
       body: JSONdata,
     };
-    
+
     const result = await fetch(url, options);
 
-    if(result.status !== 201){
-      return {message: "Erro ao criar a conta. Verifique os campos."}
+    if (result.status !== 201) {
+      return { message: "Erro ao criar a conta. Verifique os campos." };
     }
 
-    revalidatePath("/contas")
-    return {ok: "Conta criada com sucesso"}
-
+    revalidatePath("/contas");
+    return { ok: "Conta criada com sucesso" };
   };
 
   return (

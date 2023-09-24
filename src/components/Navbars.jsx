@@ -1,5 +1,5 @@
-import Image from 'next/image';
-import Logo from '@/assets/logo.svg'
+import Image from "next/image";
+import Logo from "@/assets/logo.svg";
 import { NavbarButton } from "./Pressables";
 
 export const HomeNavbar = () => {
@@ -48,5 +48,25 @@ export const AuxNavbar = () => {
 };
 
 export const AuthNavbar = () => {
-
-}
+  return (
+    <nav className="flex justify-between bg-amber-100 px-5 py-3">
+       <a href="/inicio">
+        <Image src={Logo} width={60} height={60} alt="Logo" />
+      </a>
+      <ul className="flex gap-16 text-lime-900 text-sm items-center">
+        <li>
+          <NavbarButton text={"Carrinho"} endpoint={"/carrinho"} />
+        </li>
+        <li>
+          <NavbarButton text={"Fazer Pedido"} endpoint={"/cardapio"} />
+        </li>
+        <li>
+          <NavbarButton text={"Acompanhar Pedidos"} endpoint={"/pedidos"} />
+        </li>
+        <li>
+          <NavbarButton text={"Perfil"} endpoint={"/perfil"} />
+        </li>
+      </ul>
+    </nav>
+  );
+};
