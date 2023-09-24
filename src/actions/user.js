@@ -2,7 +2,7 @@
 
 import { cookies } from 'next/headers'
 export default async function apiLogin(credenciais) {
-    const url = `http://localhost:8080/api/cliente/login`;
+    const url = `pizzariadamari-production.up.railway.app/api/cliente/login`;
 
     const options = {
       method: "POST",

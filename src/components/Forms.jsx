@@ -61,7 +61,7 @@ export const FormCadastroPessoa = () => {
 
     const JSONdata = JSON.stringify(Object.fromEntries(data));
 
-    const url = `${process.env.BASE_URL}/cadastro`;
+    const url = `pizzariadamari-production.up.railway.app/cadastro`;
 
     const options = {
       method: "POST",
@@ -158,7 +158,7 @@ export const FormCadastroEndereco = () => {
 
     const JSONdata = JSON.stringify(Object.fromEntries(data));
 
-    const url = `${process.env.BASE_URL}/cadastro`;
+    const url = `pizzariadamari-production.up.railway.app/cadastro`;
 
     const options = {
       method: "POST",
